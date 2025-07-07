@@ -17,12 +17,12 @@
       community.general.rpm_ostree_pkg:
         name: "{{ item }}"
         state: present
-        loop:
-          - tailscale
+      loop:
+        - tailscale
 
     - name: lightdm configuration
       ansible.builtin.copy:
-        src: "{{ files }}/lightdm.conf"
+        src: "{{ files }}/lightdm.conf"srv
         dest: "/etc/lightdm/lightdm.conf"
         force: true
 
@@ -37,9 +37,9 @@
         name: "{{ item }}"
         enabled: true
         state: started
-        loop:
-          - sshd
-          - tailscale
+      loop:
+        - sshd
+        - tailscale
 
     - name: schedule playbook run via crontab
       ansible.builtin.cron:
