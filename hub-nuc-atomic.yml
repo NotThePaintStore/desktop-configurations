@@ -1,7 +1,7 @@
 - name: hub-nuc-atomic configuration
   hosts: localhost
   vars:
-    - files: "hub-nuc-atomic_files"
+    files: "hub-nuc-atomic_files"
   tasks:
 
     - name: check for updates
