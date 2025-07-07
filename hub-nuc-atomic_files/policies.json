@@ -1,0 +1,42 @@
+{
+	"policies": {
+		"AutofillAddressEnabled": false,
+		"AutofillCreditCardEnabled": false,
+		"Bookmarks": [
+			{
+				"URL": "https://inventory.bmoore.xyz",
+				"Title": "HUB Inventory"
+			}
+		],
+		"DisableFirefoxAccounts": true,
+		"DisableFormHistory": true,
+		"DisablePocket": true,
+		"DisableProfileImport": true,
+		"DisableTelemetry": true,
+		"DisplayBookmarksToolbar": "always",
+		"DontCheckDefaultBrowser": true,
+		"FirefoxHome": {
+			"Search": true,
+			"TopSites": false,
+			"SponsoredTopSites": false,
+			"Highlights": false,
+			"Pocket": false,
+			"SponsoredPocket": false,
+			"Snippets": false,
+			"Locked": false
+		},
+		"Homepage": {
+			"URL": "https://inventory.bmoore.xyz",
+			"Locked": true,
+			"StartPage": "homepage"
+		},
+		"InstallAddonsPermission": {
+			"Default": false
+		},
+		"NoDefaultBookmarks": true,
+		"OfferToSaveLogins": false,
+		"OverrideFirstRunPage": "",
+		"OverridePostUpdatePage": "",
+		"PasswordManagerEnabled": false
+	}
+}

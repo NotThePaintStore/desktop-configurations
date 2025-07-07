@@ -1,0 +1,56 @@
+- name: hub-nuc-atomic configuration
+  hosts: localhost
+  vars:
+    - files: "hub-nuc-atomic_files"
+  tasks:
+
+    - name: check for updates
+      ansible.posix.rpm_ostree_upgrade:
+        allow_downgrade: false
+        cache_only: false
+        os: ""
+        peer: false
+      notify:
+        - system reboot
+
+    - name: install packages
+      community.general.rpm_ostree_pkg:
+        name: "{{ pkg }}"
+        state: present
+        loop:
+          - tailscale
+
+    - name: lightdm configuration
+      ansible.builtin.copy:
+        src: "{{ files }}/lightdm.conf"
+        dest: "/etc/lightdm/lightdm.conf"
+        force: true
+
+    - name: firefox configuration
+      ansible.builtin.copy:
+        src: "{{ files }}/policies.json"
+        dest: "/etc/firefox/policies.json"
+        force: true
+
+    - name: ensure services are enabled/running
+      ansible.builtin.service:
+        name: "{{ srv }}"
+        enabled: true
+        state: started
+        loop:
+          - sshd
+          - tailscale
+
+    - name: schedule playbook run via crontab
+      ansible.builtin.cron:
+        name: "ansible-pull"
+        month: "*"
+        day: "1,15"
+        hour: "2"
+        job: "ansible-pull -U https://github.com/NotThePaintStore/desktop-configurations.git hub-nuc-atomic.yml"
+        user: root
+
+
+  handlers:
+    - name: system reboot
+      ansible.builtin.reboot:
