@@ -22,7 +22,7 @@
 
     - name: lightdm configuration
       ansible.builtin.copy:
-        src: "{{ files }}/lightdm.conf"srv
+        src: "{{ files }}/lightdm.conf"
         dest: "/etc/lightdm/lightdm.conf"
         force: true
 
