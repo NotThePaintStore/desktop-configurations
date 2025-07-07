@@ -39,7 +39,7 @@
         state: started
       loop:
         - sshd
-        - tailscale
+        - tailscaled
 
     - name: schedule playbook run via crontab
       ansible.builtin.cron:
