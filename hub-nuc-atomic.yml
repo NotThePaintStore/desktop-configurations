@@ -15,7 +15,7 @@
 
     - name: install packages
       community.general.rpm_ostree_pkg:
-        name: "{{ pkg }}"
+        name: "{{ item }}"
         state: present
         loop:
           - tailscale
@@ -34,7 +34,7 @@
 
     - name: ensure services are enabled/running
       ansible.builtin.service:
-        name: "{{ srv }}"
+        name: "{{ item }}"
         enabled: true
         state: started
         loop:
