@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly ansible-pull run
+Requires=ansible-pull.service
+
+[Timer]
+OnCalendar=Weekly
+AccuracySec=3h
+Persistent=false
+
+[Install]
+WantedBy=timers.target

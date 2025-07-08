@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs ansible-pull to maintain system configuration and updates
+Wants=ansible-pull.timer
+
+[Service]
+Type=simple
+ExecStart=ansible-pull -U https://github.com/NotThePaintStore/desktop-configurations.git hub-nuc-atomic.yml
+
+[Install]
+WantedBy=multi-user.target
