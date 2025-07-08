@@ -28,7 +28,7 @@
 		"Homepage": {
 			"URL": "https://inventory.bmoore.xyz",
 			"Locked": true,
-			"StartPage": "homepage"
+			"StartPage": "none"
 		},
 		"InstallAddonsPermission": {
 			"Default": false
