@@ -53,4 +53,5 @@
 
   handlers:
     - name: system reboot
-      ansible.builtin.reboot:
+      ansible.builtin.command:
+        cmd: systemctl poweroff -i
