@@ -40,6 +40,8 @@
       loop:
       - "ansible-pull.timer"
       - "ansible-pull.service"
+      - "sched-reboot.timer"
+      - "weekly-reboot.service"
 
     - name: Ensure services are enabled/running
       ansible.builtin.service:
@@ -53,5 +55,7 @@
 
   handlers:
     - name: system reboot
-      ansible.builtin.command:
-        cmd: systemctl poweroff -i
+      ansible.builtin.service:
+        name: sched-reboot.timer
+        enabled: false
+        state: started

@@ -3,8 +3,8 @@ Description=Weekly ansible-pull run
 Requires=ansible-pull.service
 
 [Timer]
-OnCalendar=Weekly
-AccuracySec=3h
+OnCalendar=Sun 03:00 America/New_York
+AccuracySec=30m
 Persistent=false
 
 [Install]

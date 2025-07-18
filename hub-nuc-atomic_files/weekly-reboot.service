@@ -1,0 +1,10 @@
+[Unit]
+Description=Reboots the system weekly following ansible-pull
+Wants=sched-reboot.timer
+
+[Service]
+Type=simple
+ExecStart=systemctl reboot --no-block
+
+[Install]
+WantedBy=multi-user.target

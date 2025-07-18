@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly reboot after ansible-pull
+Requires=weekly-reboot.service
+
+[Timer]
+OnCalendar=Sun 04:00 America/New_York
+Persistent=false
+
+[Install]
+WantedBy=timers.target
