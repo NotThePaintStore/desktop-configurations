@@ -1,6 +1,5 @@
 [Unit]
 Description=Weekly ansible-pull run
-Requires=ansible-pull.service
 
 [Timer]
 OnCalendar=Sun 03:00 America/New_York

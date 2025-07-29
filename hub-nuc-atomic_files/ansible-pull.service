@@ -1,6 +1,5 @@
 [Unit]
 Description=Runs ansible-pull to maintain system configuration and updates
-Wants=ansible-pull.timer
 
 [Service]
 Type=simple
